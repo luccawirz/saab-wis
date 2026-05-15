@@ -1,0 +1,1726 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><title>WIS 3 — Electrical System</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Quartz 4"/><meta property="og:title" content="WIS 3 — Electrical System"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="WIS 3 — Electrical System"/><meta name="twitter:description" content="3."/><meta property="og:description" content="3."/><meta property="og:image:alt" content="3."/><meta property="twitter:domain" content="quartz.jzhao.xyz"/><meta property="og:url" content="https://quartz.jzhao.xyz/WIS/03-Electrical-System"/><meta property="twitter:url" content="https://quartz.jzhao.xyz/WIS/03-Electrical-System"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="3."/><meta name="generator" content="Quartz"/><link href="../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL3RtcC9zYWFiLXF1YXJ0ei9xdWFydHovY29tcG9uZW50cy9zdHlsZXMiLCJzb3VyY2VzIjpbIm1lcm1haWQuaW5saW5lLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUdGO0VBQ0U7OztBQUtGO0VBQ0U7RUFDQTs7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTs7QUFHRjtFQUNFOztBQUlGO0VBQ0U7RUFDQTtFQUNBIiwic291cmNlc0NvbnRlbnQiOlsiLmV4cGFuZC1idXR0b24ge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsb2F0OiByaWdodDtcbiAgcGFkZGluZzogMC40cmVtO1xuICBtYXJnaW46IDAuM3JlbTtcbiAgcmlnaHQ6IDA7IC8vIE5PVEU6IHJpZ2h0IHdpbGwgYmUgc2V0IGluIG1lcm1haWQuaW5saW5lLnRzXG4gIGNvbG9yOiB2YXIoLS1ncmF5KTtcbiAgYm9yZGVyLWNvbG9yOiB2YXIoLS1kYXJrKTtcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xuICBib3JkZXI6IDFweCBzb2xpZDtcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xuICBvcGFjaXR5OiAwO1xuICB0cmFuc2l0aW9uOiAwLjJzO1xuXG4gICYgPiBzdmcge1xuICAgIGZpbGw6IHZhcigtLWxpZ2h0KTtcbiAgICBmaWx0ZXI6IGNvbnRyYXN0KDAuMyk7XG4gIH1cblxuICAmOmhvdmVyIHtcbiAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgYm9yZGVyLWNvbG9yOiB2YXIoLS1zZWNvbmRhcnkpO1xuICB9XG5cbiAgJjpmb2N1cyB7XG4gICAgb3V0bGluZTogMDtcbiAgfVxufVxuXG5wcmUge1xuICAmOmhvdmVyID4gLmV4cGFuZC1idXR0b24ge1xuICAgIG9wYWNpdHk6IDE7XG4gICAgdHJhbnNpdGlvbjogMC4ycztcbiAgfVxufVxuXG4jbWVybWFpZC1jb250YWluZXIge1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIGNvbnRhaW46IGxheW91dDtcbiAgei1pbmRleDogOTk5O1xuICBsZWZ0OiAwO1xuICB0b3A6IDA7XG4gIHdpZHRoOiAxMDB2dztcbiAgaGVpZ2h0OiAxMDB2aDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgZGlzcGxheTogbm9uZTtcbiAgYmFja2Ryb3AtZmlsdGVyOiBibHVyKDRweCk7XG4gIGJhY2tncm91bmQ6IHJnYmEoMCwgMCwgMCwgMC41KTtcblxuICAmLmFjdGl2ZSB7XG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICB9XG5cbiAgJiA+ICNtZXJtYWlkLXNwYWNlIHtcbiAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgICBib3JkZXItcmFkaXVzOiA1cHg7XG4gICAgcG9zaXRpb246IGZpeGVkO1xuICAgIHRvcDogNTAlO1xuICAgIGxlZnQ6IDUwJTtcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcbiAgICBoZWlnaHQ6IDgwdmg7XG4gICAgd2lkdGg6IDgwdnc7XG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcblxuICAgICYgPiAubWVybWFpZC1jb250ZW50IHtcbiAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICAgIHRyYW5zZm9ybS1vcmlnaW46IDAgMDtcbiAgICAgIHRyYW5zaXRpb246IHRyYW5zZm9ybSAwLjFzIGVhc2U7XG4gICAgICBvdmVyZmxvdzogdmlzaWJsZTtcbiAgICAgIG1pbi1oZWlnaHQ6IDIwMHB4O1xuICAgICAgbWluLXdpZHRoOiAyMDBweDtcblxuICAgICAgcHJlIHtcbiAgICAgICAgbWFyZ2luOiAwO1xuICAgICAgICBib3JkZXI6IG5vbmU7XG4gICAgICB9XG5cbiAgICAgIHN2ZyB7XG4gICAgICAgIG1heC13aWR0aDogbm9uZTtcbiAgICAgICAgaGVpZ2h0OiBhdXRvO1xuICAgICAgfVxuICAgIH1cblxuICAgICYgPiAubWVybWFpZC1jb250cm9scyB7XG4gICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICBib3R0b206IDIwcHg7XG4gICAgICByaWdodDogMjBweDtcbiAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICBnYXA6IDhweDtcbiAgICAgIHBhZGRpbmc6IDhweDtcbiAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICBib3JkZXItcmFkaXVzOiA2cHg7XG4gICAgICBib3gtc2hhZG93OiAwIDJweCA0cHggcmdiYSgwLCAwLCAwLCAwLjEpO1xuICAgICAgei1pbmRleDogMjtcblxuICAgICAgLm1lcm1haWQtY29udHJvbC1idXR0b24ge1xuICAgICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICAgICAgd2lkdGg6IDMycHg7XG4gICAgICAgIGhlaWdodDogMzJweDtcbiAgICAgICAgcGFkZGluZzogMDtcbiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xuICAgICAgICBjb2xvcjogdmFyKC0tZGFyayk7XG4gICAgICAgIGJvcmRlci1yYWRpdXM6IDRweDtcbiAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICAgICAgICBmb250LXNpemU6IDE2cHg7XG4gICAgICAgIGZvbnQtZmFtaWx5OiB2YXIoLS1ib2R5Rm9udCk7XG4gICAgICAgIHRyYW5zaXRpb246IGFsbCAwLjJzIGVhc2U7XG5cbiAgICAgICAgJjpob3ZlciB7XG4gICAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgfVxuXG4gICAgICAgICY6YWN0aXZlIHtcbiAgICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMXB4KTtcbiAgICAgICAgfVxuXG4gICAgICAgIC8vIFN0eWxlIHRoZSByZXNldCBidXR0b24gZGlmZmVyZW50bHlcbiAgICAgICAgJjpudGgtY2hpbGQoMikge1xuICAgICAgICAgIHdpZHRoOiBhdXRvO1xuICAgICAgICAgIHBhZGRpbmc6IDAgMTJweDtcbiAgICAgICAgICBmb250LXNpemU6IDE0cHg7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9XG4gIH1cbn1cbiJdfQ== */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://quartz.jzhao.xyz/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://quartz.jzhao.xyz/WIS/03-Electrical-System-og-image.webp"/><meta property="og:image:url" content="https://quartz.jzhao.xyz/WIS/03-Electrical-System-og-image.webp"/><meta name="twitter:image" content="https://quartz.jzhao.xyz/WIS/03-Electrical-System-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="WIS/03-Electrical-System"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="..">Quartz 4</a></h2><div class="spacer mobile-only"></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Search</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>!a.isFolder&amp;&amp;!b.isFolder||a.isFolder&amp;&amp;b.isFolder?a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;}):!a.isFolder&amp;&amp;b.isFolder?1:-1&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-9"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-9" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../WIS/">WIS</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>WIS 3 — Electrical System</a></div></nav><h1 class="article-title">WIS 3 — Electrical System</h1><p show-comma="true" class="content-meta"><time datetime="2026-05-15T21:49:06.000Z">May 15, 2026</time><span>31 min read</span></p><ul class="tags"><li><a href="../tags/saab" class="internal tag-link">saab</a></li><li><a href="../tags/wis" class="internal tag-link">wis</a></li><li><a href="../tags/electrical" class="internal tag-link">electrical</a></li><li><a href="../tags/electronics" class="internal tag-link">electronics</a></li><li><a href="../tags/" class="internal tag-link"></a></li></ul></div></div><article class="popover-hint"><h1 id="3-electrical-system">3. Electrical System<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3-electrical-system" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<blockquote>
+<p>Elektrik, Beleuchtung, Bus-Systeme, Audio, Wegfahrsperre, Navigation</p>
+</blockquote>
+<ul>
+<li><strong><a href="../" class="internal alias" data-slug="index">← Dashboard</a></strong></li>
+</ul>
+<h2 id="subsections">Subsections<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#subsections" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Subsection</th><th>Online</th></tr></thead><tbody><tr><td>Charging systems</td><td><a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/charging-systems" class="external">→<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></td></tr><tr><td>Starting system</td><td><a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/starting-system" class="external">→<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></td></tr><tr><td>Lighting and signalling systems</td><td><a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/lighting-and-signalling-systems" class="external">→<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></td></tr><tr><td>Wash/wipe systems</td><td><a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/wash-wipe-systems" class="external">→<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></td></tr><tr><td><strong>Bus and diagnostics communication</strong></td><td><a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/bus-and-diagnostics-communication" class="external">→<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></td></tr><tr><td>Audio System</td><td><a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/audio-system" class="external">→<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></td></tr><tr><td>Wiring harness and components</td><td><a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/wiring-harness-and-components" class="external">→<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></td></tr><tr><td>Driver information, MIU and SID</td><td><a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/driver-information-main-instrument-unit-and-sid" class="external">→<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></td></tr><tr><td>Theft protection</td><td><a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/theft-protection" class="external">→<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></td></tr><tr><td>Parking aid (SPA)</td><td><a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/parking-aid-spa" class="external">→<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></td></tr><tr><td>Telematics and Navigation</td><td><a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/telematics-and-navigation" class="external">→<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></td></tr></tbody></table></div>
+<h2 id="bus--diagnostics--subsections">Bus &amp; Diagnostics — Subsections<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#bus--diagnostics--subsections" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Subsection</th><th>Online</th></tr></thead><tbody><tr><td>Technical description</td><td><a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/bus-and-diagnostics-communication/technical-description" class="external">→<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></td></tr><tr><td>Fault diagnosis, general</td><td><a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/bus-and-diagnostics-communication/fault-diagnosis-general" class="external">→<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></td></tr><tr><td>Location of components</td><td><a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/bus-and-diagnostics-communication/location-of-components" class="external">→<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></td></tr><tr><td>Wiring diagram</td><td><a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/bus-and-diagnostics-communication/wiring-diagram" class="external">→<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></td></tr><tr><td>Bulletins - SI/MI</td><td><a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/bus-and-diagnostics-communication/bulletins-si-mi" class="external">→<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></td></tr><tr><td>Fault diagnosis, fault symptoms</td><td><a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/bus-and-diagnostics-communication/fault-diagnosis-fault-symptoms" class="external">→<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></td></tr></tbody></table></div>
+<hr/>
+<h2 id="bus--diagnostics--technische-beschreibung">Bus &amp; Diagnostics — Technische Beschreibung<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#bus--diagnostics--technische-beschreibung" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h4 id="main-components">Main components<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#main-components" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<blockquote>
+<p>Quelle: <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/bus-and-diagnostics-communication/technical-description/main-components" class="external">https://saabwisonline.com/9-3-9440/2005/3-electrical-system/bus-and-diagnostics-communication/technical-description/main-components<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<h3 id="p-bus">P-bus<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#p-bus" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p><img src="https://saabwisonline.com/images/9-3-9440/img-f3/f336d031.jpg" alt/></p>
+</blockquote>
+<h3 id="i-bus-4d">I-bus, 4D<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#i-bus-4d" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p><img src="https://saabwisonline.com/images/9-3-9440/img-f3/f336d037.jpg" alt/></p>
+</blockquote>
+<h3 id="i-bus-cv">I-bus, CV<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#i-bus-cv" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p><img src="https://saabwisonline.com/images/9-3-9440/img-f3/f336d038.jpg" alt/></p>
+</blockquote>
+<h3 id="o-bus-4d">O-bus, 4D<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#o-bus-4d" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p><img src="https://saabwisonline.com/images/9-3-9440/img-f3/f336d002.jpg" alt/></p>
+</blockquote>
+<h3 id="o-bus-cv">O-bus, CV<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#o-bus-cv" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p><img src="https://saabwisonline.com/images/9-3-9440/img-f3/f336d024.jpg" alt/></p>
+</blockquote>
+<h4 id="brief-description">Brief description<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#brief-description" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<blockquote>
+<p>Quelle: <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/bus-and-diagnostics-communication/technical-description/brief-description" class="external">https://saabwisonline.com/9-3-9440/2005/3-electrical-system/bus-and-diagnostics-communication/technical-description/brief-description<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<h3 id="general">General<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#general" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p><img src="https://saabwisonline.com/images/9-3-9440/img-f3/f336d039.jpg" alt/></p>
+</blockquote>
+<blockquote>
+<p><img src="https://saabwisonline.com/images/9-3-9440/img-f3/f336d040.jpg" alt/></p>
+</blockquote>
+<h3 id="p-bus-and-i-bus">P-bus and I-bus<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#p-bus-and-i-bus" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h3 id="o-bus">O-bus<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#o-bus" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h4 id="detailed-description">Detailed description<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#detailed-description" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<blockquote>
+<p>Quelle: <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/bus-and-diagnostics-communication/technical-description/detailed-description" class="external">https://saabwisonline.com/9-3-9440/2005/3-electrical-system/bus-and-diagnostics-communication/technical-description/detailed-description<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<h3 id="general-1">General<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#general-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p><img src="https://saabwisonline.com/images/9-3-9440/img-f3/f336d039.jpg" alt/></p>
+</blockquote>
+<h3 id="p-bus-and-i-bus-1">P-bus and I-bus<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#p-bus-and-i-bus-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p><img src="https://saabwisonline.com/images/9-3-9440/img-f3/f336d041.jpg" alt/></p>
+</blockquote>
+<blockquote>
+<p><img src="https://saabwisonline.com/images/9-3-9440/img-f3/f336d010.jpg" alt/></p>
+</blockquote>
+<blockquote>
+<p><img src="https://saabwisonline.com/images/9-3-9440/img-f3/f336d009.jpg" alt/></p>
+</blockquote>
+<blockquote>
+<p><img src="https://saabwisonline.com/images/9-3-9440/img-f3/f336d042.jpg" alt/></p>
+</blockquote>
+<blockquote>
+<p><img src="https://saabwisonline.com/images/9-3-9440/img-f3/f336d012.jpg" alt/></p>
+</blockquote>
+<blockquote>
+<p><img src="https://saabwisonline.com/images/9-3-9440/img-f3/f336d015.jpg" alt/></p>
+</blockquote>
+<blockquote>
+<p><img src="https://saabwisonline.com/images/9-3-9440/img-f3/f336d013.jpg" alt/></p>
+</blockquote>
+<h3 id="o-bus-1">O-bus<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#o-bus-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p><img src="https://saabwisonline.com/images/9-3-9440/img-f3/f336d017.jpg" alt/></p>
+</blockquote>
+<blockquote>
+<p><img src="https://saabwisonline.com/images/9-3-9440/img-f3/f336d018.jpg" alt/></p>
+</blockquote>
+<blockquote>
+<p><img src="https://saabwisonline.com/images/9-3-9440/img-f3/f336d016.jpg" alt/></p>
+</blockquote>
+<blockquote>
+<p><img src="https://saabwisonline.com/images/9-3-9440/img-f3/f336d019.jpg" alt/></p>
+</blockquote>
+<blockquote>
+<p><img src="https://saabwisonline.com/images/9-3-9440/img-f3/f336d043.jpg" alt/></p>
+</blockquote>
+<blockquote>
+<p><img src="https://saabwisonline.com/images/9-3-9440/img-f3/f336d021.jpg" alt/></p>
+</blockquote>
+<p>The red visible light is of laser class 1. Do not look directly into the optic fibre or the control module connector at close range. At a distance of less than 20 mm from your eyes to the light source, your eyes could be damaged.</p>
+<p>It is not uncommon and perfectly normal for the value of a counter in a car that has been driven large distances to be 255.</p>
+<p>The counters are very sensitive and generally show 255, even after a short period of time. Starting the engine and the activation of the O-bus when the radio is turned on usually cause the value of the counters to increase a couple of digits.</p>
+<h3 id="c-cable">C-cable<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#c-cable" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h3 id="function-chains">Function chains<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#function-chains" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p><img src="https://saabwisonline.com/images/9-3-9440/img-f3/f381d004.jpg" alt/></p>
+</blockquote>
+<blockquote>
+<p><img src="https://saabwisonline.com/images/9-3-9440/img-f3/f383d062.jpg" alt/></p>
+</blockquote>
+<blockquote>
+<p><img src="https://saabwisonline.com/images/9-3-9440/img-f3/f383d011.jpg" alt/></p>
+</blockquote>
+<blockquote>
+<p><img src="https://saabwisonline.com/images/9-3-9440/img-f8/f831d013.jpg" alt/></p>
+</blockquote>
+<blockquote>
+<p><img src="https://saabwisonline.com/images/9-3-9440/img-f3/f336d030.jpg" alt/></p>
+</blockquote>
+<h2 id="charging-systems--details">Charging Systems — Details<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#charging-systems--details" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h4 id="technical-data">Technical data<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#technical-data" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<blockquote>
+<p>Quelle: <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/charging-systems/technical-data" class="external">https://saabwisonline.com/9-3-9440/2005/3-electrical-system/charging-systems/technical-data<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<p>📄 Battery, 60Ah</p>
+<p>📄 Battery, 70Ah</p>
+<p>📄 Battery, 85 Ah</p>
+<p>📄 Generator 120A, B207</p>
+<p>📄 Generator 130A, Z19</p>
+<p>📄 Alternator 140A, B207</p>
+<h4 id="special-tools">Special tools<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#special-tools" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<blockquote>
+<p>Quelle: <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/charging-systems/special-tools" class="external">https://saabwisonline.com/9-3-9440/2005/3-electrical-system/charging-systems/special-tools<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<p>📄 30 07 739 Hose pinch-off pliers</p>
+<p>📄 Thread locking adhesive, Loctite 242</p>
+<p>📄 83 95 261 Fuel line tool</p>
+<p>📄 83 95 709 Support tool, generator freewheel</p>
+<p>📄 83 95 238 Wedge</p>
+<p>📄 83 95 832 XZN 10 bits 3/8” for removing/fitting freewheel, generator</p>
+<p>📄 83 96 095 Release tool, belt circuit</p>
+<p>📄 KM-J-42000-EU-B Battery tester</p>
+<p>📄 87 92 335 Locking pin</p>
+<h4 id="technical-description">Technical description<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#technical-description" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<blockquote>
+<p>Quelle: <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/charging-systems/technical-description" class="external">https://saabwisonline.com/9-3-9440/2005/3-electrical-system/charging-systems/technical-description<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<p>📄 Main components</p>
+<p>📄 Brief description</p>
+<p>📄 Detailed description</p>
+<p>📄 Charging, bus information</p>
+<p>📄 Generator (2)</p>
+<p>📄 Battery analyser/battery tester</p>
+<h4 id="fault-diagnosis-general">Fault diagnosis, general<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#fault-diagnosis-general" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<blockquote>
+<p>Quelle: <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/charging-systems/fault-diagnosis-general" class="external">https://saabwisonline.com/9-3-9440/2005/3-electrical-system/charging-systems/fault-diagnosis-general<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<p>📄 Testing for open/short circuits</p>
+<p>📄 Diagnostic Concept</p>
+<p>📄 Connector, handling and checks</p>
+<h4 id="adjustmentreplacement">Adjustment/replacement<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#adjustmentreplacement" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<blockquote>
+<p>Quelle: <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/charging-systems/adjustment-replacement" class="external">https://saabwisonline.com/9-3-9440/2005/3-electrical-system/charging-systems/adjustment-replacement<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<p>📄 Generator, Z19</p>
+<p>📄 Generator, B207</p>
+<p>📄 Generator, remove and install, Z18XE</p>
+<p>📄 Battery</p>
+<p>📄 Procedures after disconnecting the battery</p>
+<p>📄 Battery check</p>
+<p>📄 Battery cover, bottom</p>
+<p>📄 Battery cable, ground</p>
+<p>📄 Belt pulley, B207</p>
+<p>📄 Belt pulley, 4-cyl diesel</p>
+<p>📄 Charge regulator, B207</p>
+<p>📄 Charge regulator, replace, Z18XE</p>
+<p>📄 Charge regulator, 4-cyl diesel</p>
+<p>📄 Battery cover</p>
+<p>📄 Charging the battery</p>
+<h4 id="location-of-components">Location of components<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#location-of-components" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<blockquote>
+<p>Quelle: <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/charging-systems/location-of-components" class="external">https://saabwisonline.com/9-3-9440/2005/3-electrical-system/charging-systems/location-of-components<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<p>📄 Generator (2)</p>
+<p>📄 Starter motor (4)</p>
+<p>📄 SID (541)</p>
+<p>📄 Control module, Trionic, B207, switch A (589A)</p>
+<p>📄 Control module, Trionic, B207, switch B (589B)</p>
+<p>📄 Control module, EDC16, 4-cyl diesel, contact A, engine (595A)</p>
+<p>📄 EDC16 Control module, 4-cyl. diesel, connector B (595B)</p>
+<p>📄 Control module, Simtec, Z18XE, switch A (engine) (705A)</p>
+<p>📄 Control module, Simtec, Z18XE, switch B (705B)</p>
+<p>📄 Grounding point G2</p>
+<p>📄 Grounding point G7</p>
+<p>📄 Grounding point G25</p>
+<h4 id="wiring-diagram">Wiring diagram<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#wiring-diagram" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<blockquote>
+<p>Quelle: <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/charging-systems/wiring-diagram" class="external">https://saabwisonline.com/9-3-9440/2005/3-electrical-system/charging-systems/wiring-diagram<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<p>📄 Charging system, petrol</p>
+<p>📄 Charging system, diesel</p>
+<h4 id="bulletins---simi">Bulletins - SI/MI<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#bulletins---simi" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<blockquote>
+<p>Quelle: <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/charging-systems/bulletins-si-mi" class="external">https://saabwisonline.com/9-3-9440/2005/3-electrical-system/charging-systems/bulletins-si-mi<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<p>(02-07-321) Battery check procedures</p>
+<p>(321-2555) Action after checking the battery and voltage drop</p>
+<p>(321-2645) Checking/replacing the alternator</p>
+<p>(321-2692) NOTE:</p>
+<h2 id="starting-system--details">Starting System — Details<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#starting-system--details" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h4 id="technical-data-1">Technical data<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#technical-data-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<blockquote>
+<p>Quelle: <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/starting-system/technical-data" class="external">https://saabwisonline.com/9-3-9440/2005/3-electrical-system/starting-system/technical-data<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<p>📄 Starter motor, B207</p>
+<p>📄 Starter motor, Z18XE</p>
+<p>📄 Starter motor for 4-cylinder diesel engine</p>
+<h4 id="special-tools-1">Special tools<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#special-tools-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<blockquote>
+<p>Quelle: <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/starting-system/special-tools" class="external">https://saabwisonline.com/9-3-9440/2005/3-electrical-system/starting-system/special-tools<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<p>📄 30 05 378 Clamp ammeter</p>
+<p>📄 86 11 857 Test lamp, red-green</p>
+<h4 id="technical-description-1">Technical description<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#technical-description-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<blockquote>
+<p>Quelle: <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/starting-system/technical-description" class="external">https://saabwisonline.com/9-3-9440/2005/3-electrical-system/starting-system/technical-description<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<p>📄 Starting system (SCL), main components</p>
+<p>📄 Starting system (SCL), brief description</p>
+<p>📄 Starter motor, detailed description</p>
+<p>📄 Start, bus information</p>
+<p>📄 Immobilization, brief description</p>
+<h4 id="fault-diagnosis-general-1">Fault diagnosis, general<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#fault-diagnosis-general-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<blockquote>
+<p>Quelle: <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/starting-system/fault-diagnosis-general" class="external">https://saabwisonline.com/9-3-9440/2005/3-electrical-system/starting-system/fault-diagnosis-general<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<p>📄 Testing for open/short circuits</p>
+<p>📄 Diagnostic Concept</p>
+<p>📄 Fault diagnosis strategy for electronic systems</p>
+<p>📄 Connector, handling and checks</p>
+<h4 id="adjustmentreplacement-1">Adjustment/replacement<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#adjustmentreplacement-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<blockquote>
+<p>Quelle: <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/starting-system/adjustment-replacement" class="external">https://saabwisonline.com/9-3-9440/2005/3-electrical-system/starting-system/adjustment-replacement<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<p>📄 Starter motor, B207</p>
+<p>📄 Starter motor, Z19</p>
+<p>📄 Starter motor, replace, Z18XE</p>
+<p>📄 Ignition Switch Module, ISM</p>
+<p>📄 Contact, clutch, immobiliser (411) US/CA</p>
+<p>📄 Procedures after disconnecting the battery</p>
+<h4 id="location-of-components-1">Location of components<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#location-of-components-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<blockquote>
+<p>Quelle: <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/starting-system/location-of-components" class="external">https://saabwisonline.com/9-3-9440/2005/3-electrical-system/starting-system/location-of-components<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<p>📄 Starter motor (4)</p>
+<p>📄 Ignition Switch Module (20)</p>
+<p>📄 Instrument panel electrical centre 22 (IPEC)</p>
+<p>📄 Fuse 1, fuse box in the dashboard 22</p>
+<p>📄 Fuse 2, fuse box in the dashboard 22</p>
+<p>📄 Start inhibitor switch, automatic in 245 (77)</p>
+<p>📄 Transmission range switch, automatic (245)</p>
+<p>📄 Engine bay electrical centre 342 (UEC)</p>
+<p>📄 Fuse 4, electrical centre engine bay 342</p>
+<p>📄 Fuse 6, engine bay fuse box 342</p>
+<p>📄 Fuse 31, engine bay main fuse box 342, maxifuse</p>
+<p>📄 Switch, clutch, start immobilizer (411)</p>
+<p>📄 TCM control module, AF40 (502b)</p>
+<p>📄 Relay, +50 (517)</p>
+<p>📄 SID (541)</p>
+<p>📄 Control module, Trionic, B207, switch A (589A)</p>
+<p>📄 EDC16 Control module, 4-cyl. diesel, connector B (595B)</p>
+<p>📄 Unit, steering wheel assembly (703)</p>
+<p>📄 Control module, Simtec, Z18XE, switch B (705B)</p>
+<p>📄 Steering Column Lock (708)</p>
+<p>📄 Connector H4-3</p>
+<p>📄 Connector H24-2 (T8)</p>
+<p>📄 Connector H24-4 (Simtec)</p>
+<p>📄 Connector H24-5 (EDC16)</p>
+<p>📄 Connector H33-1</p>
+<p>📄 Connector H102-1</p>
+<p>📄 Crimp J69, instrument harness</p>
+<p>📄 Crimp connection J70, instrument harness</p>
+<p>📄 Crimp J78, dashboard harness</p>
+<p>📄 Crimp J93, main harness</p>
+<p>📄 Crimp J232, adapter harness Simtec</p>
+<p>📄 Crimp J275, adapter harness EDC16</p>
+<p>📄 Grounding point G40</p>
+<h4 id="wiring-diagram-1">Wiring diagram<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#wiring-diagram-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<blockquote>
+<p>Quelle: <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/starting-system/wiring-diagram" class="external">https://saabwisonline.com/9-3-9440/2005/3-electrical-system/starting-system/wiring-diagram<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<p>📄 Starting system, automatic transmission, petrol</p>
+<p>📄 Starting system, manual gearbox, petrol</p>
+<p>📄 Starting system, diesel</p>
+<h4 id="bulletins---simi-1">Bulletins - SI/MI<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#bulletins---simi-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<blockquote>
+<p>Quelle: <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/starting-system/bulletins-si-mi" class="external">https://saabwisonline.com/9-3-9440/2005/3-electrical-system/starting-system/bulletins-si-mi<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<p>(321-2661) Battery care</p>
+<p>(321-2668) Battery care</p>
+<p>(TA340-0921) Start difficulties, Battery, CIM, SCL, ISM &amp; Remote</p>
+<p>(TA340-0802) Ignition synchronisation malfunction, DTC P0340</p>
+<h4 id="fault-diagnosis-fault-symptoms">Fault diagnosis, fault symptoms<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#fault-diagnosis-fault-symptoms" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<blockquote>
+<p>Quelle: <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/starting-system/fault-diagnosis-fault-symptoms" class="external">https://saabwisonline.com/9-3-9440/2005/3-electrical-system/starting-system/fault-diagnosis-fault-symptoms<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<p>📄 Key cannot be turned from LOCK to OFF</p>
+<p>📄 Key cannot be turned from OFF to LOCK</p>
+<p>📄 Starter motor does not crank</p>
+<p><a href="../" class="internal alias" data-slug="index">← Dashboard</a></p>
+<h2 id="charging-systems--adjustmentreplacement-procedures">Charging Systems — Adjustment/replacement Procedures<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#charging-systems--adjustmentreplacement-procedures" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="generator-z19">Generator, Z19<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#generator-z19" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p>🔧 <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/charging-systems/adjustment-replacement/generator-z19/" class="external">Online öffnen<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<h4 id="generator-z19-1">Generator, Z19<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#generator-z19-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<h4 id="to-remove">To remove<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#to-remove" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>
+<p>Remove the battery cover and disconnect the negative battery cable.</p>
+</li>
+<li>
+<p>DTH Remove the upper engine cover.</p>
+</li>
+<li>
+<p>DT: Remove the generator’s upper retaining bolt. DTH Remove the generator’s two upper retaining bolts.</p>
+</li>
+<li>
+<p>Raise the car.</p>
+</li>
+<li>
+<p>Remove the lower engine cover.</p>
+</li>
+<li>
+<p>Remove the front right wheel.</p>
+</li>
+<li>
+<p>Remove the right-hand Front wing liner .</p>
+</li>
+<li>
+<p>Release the load of the belt tensioner and lock it with 87 92 335 Lock pin .</p>
+</li>
+<li>
+<p>Lift the poly-v-belt off the alternator. ⚠️ Important Make a note of the belt’s direction of rotation. The belt must be refitted for the same direction of rotation as previously.</p>
+</li>
+<li>
+<p>Remove the bolt from the steering swivel member, lower the suspension arm and place a 83 95 238 Wedge between the suspension arm and the anti-roll bar.</p>
+</li>
+<li>
+<p>Tap the drive shaft out of the intermediate shaft with a brass drift and large hammer. Move aside the drive shaft. ⚠️ Warning Use protective goggles to protect against flying splinters of metal.</p>
+</li>
+<li>
+<p>Remove the generator’s electrical connections (ring terminals).</p>
+</li>
+<li>
+<p>DT: Remove the lower bracket. DTH: Remove the generator’s lower retaining bolt.</p>
+</li>
+<li>
+<p>Lower the alternator and lift it out.</p>
+</li>
+</ol>
+<h4 id="to-fit">To fit<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#to-fit" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<pre><code>**DT**
+
+
+[/images/9-3-9440/img-f3/f321r129.svg](https://saabwisonline.com/images/9-3-9440/img-f3/f321r129.svg)
+</code></pre>
+<p><strong>DTH</strong></p>
+<p><a href="https://saabwisonline.com/images/9-3-9440/img-f3/f321r122.svg" class="external">/images/9-3-9440/img-f3/f321r122.svg<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<ol>
+<li>
+<p>Lift the generator into place. DT: Fasten the lower bracket. DT/DTH: Insert the lower bolt.</p>
+</li>
+<li>
+<p>Lower the car.</p>
+</li>
+<li>
+<p>DT: Fit the generator’s upper bolt. DTH: Fit the generator’s upper bolts. <strong>Tightening torque 60 Nm (44.5 lbf ft)</strong></p>
+</li>
+<li>
+<p>Raise the car.</p>
+</li>
+<li>
+<p>DT: Tighten the bolts for the lower bracket. <strong>Tightening torque</strong> M8: <strong>25 Nm</strong> (<strong>18.5 lbf ft</strong>) M10: <strong>50 Nm</strong> (<strong>37 lbf ft</strong>) DT/DTH: Tighten the lower bolt. <strong>Tightening torque 60 Nm (44.5 lbf ft)</strong></p>
+</li>
+<li>
+<p>Connect the ring terminals to the generator. <strong>Tightening torque</strong> M5: <strong>5 Nm</strong> (<strong>3.7 lbf ft</strong>) M8: <strong>10 Nm</strong> (<strong>7.5 lbf ft</strong>)</p>
+</li>
+<li>
+<p>Grease the drive shaft splines with 90 513 210 Universal paste and make sure the rubber seal is mounted on the shaft.</p>
+</li>
+<li>
+<p>Fit the drive shaft to the intermediate shaft. Make sure the lock ring clicks into place.</p>
+</li>
+<li>
+<p>Remove the wedge and connect the ball joint to the steering swivel member with a nut and bolt. The pin must be visible above the steering swivel member before the bolt is fitted. Tighten the nut. ⚠️ Warning Press up the pin carefully. The groove in the pin must be visible in the screw hole in the spindle housing. If the rubber gaiter is pressed down, it will not seal properly to the swivel pin. <strong>Tightening torque 50 Nm (37 lbf ft)</strong></p>
+</li>
+<li>
+<p>Refit the poly-V belt. ⚠️ Important Make a note of the belt’s direction of rotation. The belt must be refitted for the same direction of rotation as previously.</p>
+</li>
+<li>
+<p>Release the tension of the belt tensioner and remove 87 92 335 Lock pin . ⚠️ Note Make sure that the belt is correctly positioned on all the pulleys.</p>
+</li>
+<li>
+<p>Fit Front wing liner .</p>
+</li>
+<li>
+<p>Fit the lower engine cover.</p>
+</li>
+<li>
+<p>Fit the wheel.</p>
+</li>
+<li>
+<p>Lower the car.</p>
+</li>
+<li>
+<p>Connect the negative cable of the battery.</p>
+</li>
+<li>
+<p>Fit the battery cover.</p>
+</li>
+<li>
+<p>DTH: Fit the upper engine cover.</p>
+</li>
+<li>
+<p>Reset the car; see Procedures after battery disconnection .</p>
+</li>
+</ol>
+<h3 id="generator-b207">Generator, B207<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#generator-b207" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p>🔧 <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/charging-systems/adjustment-replacement/generator-b207/" class="external">Online öffnen<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<h4 id="generator-b207-1">Generator, B207<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#generator-b207-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<h4 id="to-remove-1">To remove<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#to-remove-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>
+<p>Remove the battery cover and disconnect the negative battery cable.</p>
+</li>
+<li>
+<p>Raise the car.</p>
+</li>
+<li>
+<p>Remove the lower engine cover.</p>
+</li>
+<li>
+<p>Place a receptacle under the car, connect a hose to the radiator and drain the coolant.</p>
+</li>
+<li>
+<p>Remove the plastic nuts from the wheel arch liner.</p>
+</li>
+<li>
+<p>Move aside the wheel arch liner, unload the belt tensioner and take off the belt (mark the belt direction). Use 83 96 095 Unloading tool, belt circuit B207E/L .</p>
+</li>
+<li>
+<p>Lower the car.</p>
+</li>
+<li>
+<p>Remove the upper engine cover.</p>
+</li>
+<li>
+<p>Unplug the connectors from the engine control module.</p>
+</li>
+<li>
+<p>Remove the engine control module.</p>
+</li>
+<li>
+<p>Detach the air hose from the air filter housing.</p>
+</li>
+<li>
+<p>Remove the cover of the air filter housing.</p>
+</li>
+<li>
+<p>Remove the air filter.</p>
+</li>
+<li>
+<p>Unplug the connector from the pressure sensor.</p>
+</li>
+<li>
+<p>Detach the intake air pipe from the air filter housing and lift up the filter housing.</p>
+</li>
+<li>
+<p>Detach the coolant hose from the engine and radiator. Bend it aside.</p>
+</li>
+<li>
+<p>Detach the vent hose from the air hose to the throttle body and loosen the fastener in the camshaft cover.</p>
+</li>
+<li>
+<p>Bend aside the vent hose.</p>
+</li>
+<li>
+<p>Detach the generator connections.</p>
+</li>
+<li>
+<p>Remove the generator retaining bolts.</p>
+</li>
+<li>
+<p>Lift up the generator; see illustration.</p>
+</li>
+</ol>
+<h4 id="to-fit-1">To fit<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#to-fit-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>
+<p>Position the generator correctly; see illustration.</p>
+</li>
+<li>
+<p>Fit the generator retaining bolts. <strong>Tightening torque 24 Nm (18 lbf ft)</strong></p>
+</li>
+<li>
+<p>Attach the generator connections.</p>
+</li>
+<li>
+<p>Fit the vent hose fastener to the camshaft cover.</p>
+</li>
+<li>
+<p>Fit the vent hose to the throttle body air hose.</p>
+</li>
+<li>
+<p>Fit the coolant hose to the engine and radiator.</p>
+</li>
+<li>
+<p>Fit the intake air pipe to the air filter housing.</p>
+</li>
+<li>
+<p>Plug in the connector to the pressure sensor.</p>
+</li>
+<li>
+<p>Put the air filter in place.</p>
+</li>
+<li>
+<p>Fit the air filter housing cover.</p>
+</li>
+<li>
+<p>Fit the air hose to the air filter housing.</p>
+</li>
+<li>
+<p>Fit the engine control module.</p>
+</li>
+<li>
+<p>Plug in the engine control module connectors.</p>
+</li>
+<li>
+<p>Fit the upper engine cover.</p>
+</li>
+<li>
+<p>Raise the car.</p>
+</li>
+<li>
+<p>Move aside the wheel arch liner and unload the belt tensioner. Use 83 96 095 Unloading tool, belt circuit B207E/L and fit the belt (be certain it is fitted in the correct direction)</p>
+</li>
+<li>
+<p>Fit the plastic nuts on the wheel arch liner.</p>
+</li>
+<li>
+<p>Fit the lower engine cover.</p>
+</li>
+<li>
+<p>Lower the car.</p>
+</li>
+<li>
+<p>Connect the negative cable of the battery.</p>
+</li>
+<li>
+<p>Fit the battery cover.</p>
+</li>
+<li>
+<p>Reset the car; see Procedures after battery disconnection .</p>
+</li>
+<li>
+<p>Top up with coolant and bleed the cooling system following Bleeding the cooling system .</p>
+</li>
+<li>
+<p>When changing: Check battery, see Battery check and charge battery if necessary, see “Charging the battery.”</p>
+</li>
+</ol>
+<h3 id="generator-remove-and-install-z18xe">Generator, remove and install, Z18XE<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#generator-remove-and-install-z18xe" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p>🔧 <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/charging-systems/adjustment-replacement/generator-remove-and-install-z18xe/" class="external">Online öffnen<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<h4 id="generator-remove-and-install-z18xe-1">Generator, remove and install, Z18XE<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#generator-remove-and-install-z18xe-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<h4 id="to-remove-2">To remove<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#to-remove-2" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>
+<p>Open the bonnet.</p>
+</li>
+<li>
+<p>Disconnect the battery - Detach the ground cable</p>
+</li>
+<li>
+<p>Raise the car.</p>
+</li>
+<li>
+<p>Remove the plastic nuts from the wheel arch liner and move it aside.</p>
+</li>
+<li>
+<p>Remove the multi-groove belt: - Tension the multi-groove belt tensioner in the direction of the arrow - Use KM-913-A or a 15 mm articulated wrench (2) - Insert KM-6130 or a 4.5 mm drift (1) - Mark the direction of rotation.</p>
+</li>
+<li>
+<p>Remove the multi-groove belt tensioner: - Tighten the multi-groove belt tensioner - Remove KM-6130 (2) - Release the multi-groove belt tensioner - Undo the bolt (1)</p>
+</li>
+<li>
+<p>Undo the alternator’s bracket: - Unplug the wiring harness from the oil pressure switch (3) - Undo the nut (2) - Undo the bolt (1) - Undo the lower bolt (4)</p>
+</li>
+<li>
+<p>Lower the car.</p>
+</li>
+<li>
+<p>Remove the protective engine cover: - Unscrew the oil filler port cap - Undo the bolt - Screw on the oil filler port cap</p>
+</li>
+<li>
+<p>Remove the air filter housing (1): - Unplug the wiring harness from (2) heating element - mass air flow sensor - Detach the wiring harness (arrows) - Remove the engine vent hose (3) - Remove the intake hose (4)</p>
+</li>
+<li>
+<p>Remove the tank purge valve: - Unscrew the bolt (arrow) - Detach the line (2) - 83 95 261 Fuel line tool (1) - Unplug the wiring harness connector (3)</p>
+</li>
+<li>
+<p>Remove the alternator belt: - Unscrew the upper bolt - Unscrew the lower bolt - Remove the alternator’s wiring harness - Unscrew 2 nuts (1) ⚠️ Note: Remove the generator upwards with the generator’s attaching plate</p>
+</li>
+<li>
+<p>Remove the alternator bracket: - Undo the bolt</p>
+</li>
+</ol>
+<h4 id="to-fit-2">To fit<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#to-fit-2" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>
+<p>Fit the alternator bracket: - Screw in the bolt ⚠️ Note: Do not tighten the bolt</p>
+</li>
+<li>
+<p>Fit the alternator: ⚠️ Note: Position the generator from above with the generator’s attaching plate - Fit the alternator’s wiring harness - Tighten the nut - Screw in the upper bolt</p>
+</li>
+<li>
+<p>Raise the car.</p>
+</li>
+<li>
+<p>Fasten the generator’s attaching plate **- Tighten the bolt - Tightening torque <strong>35 Nm</strong> **- Tighten the nut - Tightening torque <strong>35 Nm</strong> - Wiring harness connector to the oil pressure switch.</p>
+</li>
+<li>
+<p>Fit the multi-groove belt tensioner **- Tighten the bolt - Tightening torque <strong>35 Nm</strong></p>
+</li>
+<li>
+<p>Lower the car.</p>
+</li>
+<li>
+<p>Fasten the generator **- Tighten the bolt - Tightening torque <strong>20 Nm</strong></p>
+</li>
+<li>
+<p>Fit the tank purge valve - Tighten the bolt - Plug in the wiring - Plug in the wiring harness connector</p>
+</li>
+<li>
+<p>Fit the air filter housing - Fit the intake hose - Fit the engine vent hose - Plug in the wiring harness connector - Fasten the wiring harness</p>
+</li>
+<li>
+<p>Raise the car.</p>
+</li>
+<li>
+<p>Fit the multi-groove belt: ⚠️ Note: Note the direction of rotation and installation position - Tension the multi-groove belt tensioner - Use KM-913-A or a 15 mm articulated wrench - Insert KM-6130 or a 4.5 mm drift - Slacken the multi-groove belt tensioner - Use KM-913-A or a 15 mm articulated wrench - Remove KM-6130</p>
+</li>
+<li>
+<p>Fit the multi-groove belt’s guard: - Tighten the bolt</p>
+</li>
+<li>
+<p>Lower the car.</p>
+</li>
+<li>
+<p>Fit the protective engine cover: - Unscrew the oil filler port cap **- Tighten the bolt - Tightening torque <strong>8 Nm</strong> - Screw on the oil filler port cap</p>
+</li>
+<li>
+<p>Connect the battery.</p>
+</li>
+<li>
+<p>When changing, check battery, see Battery check and charge battery if necessary, see “Charging the battery”.</p>
+</li>
+<li>
+<p>Carry out Procedures after disconnecting the battery .</p>
+</li>
+<li>
+<p>Close the bonnet</p>
+</li>
+</ol>
+<h3 id="battery">Battery<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#battery" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p>🔧 <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/charging-systems/adjustment-replacement/battery/" class="external">Online öffnen<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<h4 id="battery-1">Battery<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#battery-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<h4 id="to-remove-3">To remove<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#to-remove-3" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>
+<p>Remove the battery cover and disconnect the negative battery cable.</p>
+</li>
+<li>
+<p>Disconnect the positive cable of the battery.</p>
+</li>
+<li>
+<p>Detach the battery drain hose.</p>
+</li>
+<li>
+<p>Undo the screw in the battery lock lug and lift out the battery.</p>
+</li>
+</ol>
+<h4 id="to-fit-3">To fit<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#to-fit-3" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>
+<p>Put the battery in place. Slide it back until the rear edge latches in place.</p>
+</li>
+<li>
+<p>Fit the screw. ⚠️ Important Check that the battery is properly secured.</p>
+</li>
+<li>
+<p>Connect the positive cable of the battery.</p>
+</li>
+<li>
+<p>Connect the negative cable of the battery.</p>
+</li>
+<li>
+<p>Attach the battery drain hose.</p>
+</li>
+<li>
+<p>Fit the battery cover.</p>
+</li>
+<li>
+<p>Reset the car; see Procedure after battery disconnection .</p>
+</li>
+</ol>
+<h3 id="procedures-after-disconnecting-the-battery">Procedures after disconnecting the battery<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#procedures-after-disconnecting-the-battery" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p>🔧 <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/charging-systems/adjustment-replacement/procedures-after-disconnecting-the-battery/" class="external">Online öffnen<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<h4 id="procedures-after-disconnecting-the-battery-1">Procedures after disconnecting the battery<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#procedures-after-disconnecting-the-battery-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>
+<p>Clear diagnostic trouble codes in all systems. ⚠️ Important Some diagnostic trouble codes can be generated if there is a voltage drop. These diagnostic trouble codes can be ignored and will not be regenerated after deletion.</p>
+</li>
+<li>
+<p>Set the clock as follows:</p>
+</li>
+</ol>
+<p>|  | 2.a. | Turn the ignition key to the ON position. |  | 2.b. | Press CUSTOMIZE on SIDC (SID control panel). |  | 2.c. | Turn the INFO knob until the displays shows “Clock/Alarm”. Press to confirm “OK”. |  | 2.d. | Turn the INFO knob to “Set Clock”. Press “OK”. |  | 2.e. | Turn the INFO knob to “Manual” or “RDS adjust” and set the correct time. Press “OK”. 3. Set the date as follows:</p>
+<p>|  | 3.a. | Turn the ignition key to the ON position. |  | 3.b. | Turn the INFO knob to “DATE”. |  | 3.c. | Press the INFO knob until the display shows “YEAR 2000”. |  | 3.d. | Turn the INFO knob to the correct year. Press to confirm “OK”. |  | 3.e. | Turn the INFO knob to the correct month. Press “OK”. |  | 3.f. | Turn the INFO knob to the correct date. Press “OK”.</p>
+<p>⚠️ Important</p>
+<p>Draw the customer’s attention to the fact that all remote controls must be synchronised by placing the key/keys in the ignition lock. If this is not done, the remote control will not work. 4. Synchronise the remote control’s code by inserting the key in the ignition switch. ⚠️ Warning The trap protection is not active until the window lifters have been calibrated after a power failure.</p>
+<ol start="5">
+<li>Cars with pinch protection: Program the pinch protection, see Programming pinch protection .</li>
+</ol>
+<h3 id="battery-check">Battery check<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#battery-check" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p>🔧 <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/charging-systems/adjustment-replacement/battery-check/" class="external">Online öffnen<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<h4 id="battery-check-1">Battery check<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#battery-check-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>
+<p>Switch off all consumers and remove the key from the ignition switch. ⚠️ Note Certain diagnostic trouble codes can be generated if the battery is tested while the key is in the ignition switch.</p>
+</li>
+<li>
+<p>Remove the battery cover. ⚠️ Note Low battery electrolyte level is indicated by white showing through the indicator window. A sufficient electrolyte level is indicated by black showing through the indicator window.</p>
+</li>
+<li>
+<p>Check the electrolyte level. The battery cannot be topped up. If the electrolyte level is too low, the battery must be changed.</p>
+</li>
+<li>
+<p>Remove the cover from the Underhood Electrical Centre (UEC).</p>
+</li>
+<li>
+<p>Remove fuses 30 and 37. Wait at least 20 seconds before connecting the battery tester.</p>
+</li>
+<li>
+<p>Connect the red cable clip to the positive terminal (+). (Reversed polarity will not damage the analyser.)</p>
+</li>
+<li>
+<p>Connect the black cable clamp to the negative (-) terminal. Make sure the cable clamp makes as good contact as possible. Follow the instructions on the display of the battery analyser. ⚠️ Note Once both clamps are connected, the analyser starts automatically. For a detailed description of how to use the analyser, refer to the analyser’s instruction manual.</p>
+</li>
+<li>
+<p>Under “SELECT TEST”, select whether the battery is connected to the vehicle electrical system (“IN VEHICLE”) or not (“OUTSIDE OF VEHICLE”). Select (“IN VEHICLE”) as the battery is connected in the vehicle.</p>
+</li>
+<li>
+<p>Under “BATTERY TYPE”, select whether the battery is factory-fitted (“SAAB BATTERY”) or a replacement battery from another manufacturer (“NON-SAAB”).</p>
+</li>
+<li>
+<p>Confirm with “SELECT TEST BY SAE(A)” if the battery’s cold starting current is specified according to CCA (SAE) standard. For batteries specified according to DIN standard, select and confirm with “SELECT TEST BY DIN (A)”. ⚠️ Important CCA (SAE) is always applicable for Saab’s factory-fitted batteries The DIN standard can be selected when the analyser is used to test replacement batteries that are not specified according to SAE.</p>
+</li>
+<li>
+<p>Enter the cold starting current for the battery in question. For Saab factory-fitted batteries, this text is found in capital letters on a label affixed to the top of the battery. After selecting and confirming a value, the actual battery test will start automatically. “SELECT MODE BEFORE CHARGE” “SELECT MODE AFTER CHARGE” Under certain voltage and conductance conditions, the analyser will require information on whether the test is being performed before or after the battery has been charged in order to assess it correctly.</p>
+</li>
+<li>
+<p>If the analyser indicates the battery needs to be replaced within the warranty period, note the test code. This test code should be included on the warranty claim (more information is available under Warranty policy). ⚠️ Important Also check the replacement battery with the battery analyser before fitting it in the car. If the cold start current of the replacement battery is not specified in accordance with the SAE standard then measurement in accordance with the DIN standard can be selected.</p>
+</li>
+<li>
+<p>Fit fuses 30 and 37.</p>
+</li>
+<li>
+<p>Fit the cover of the Underhood Electrical Centre (UEC).</p>
+</li>
+<li>
+<p>Fit the battery cover.</p>
+</li>
+<li>
+<p>Carry out Procedure after battery disconnection .</p>
+</li>
+</ol>
+<h3 id="battery-cover-bottom">Battery cover, bottom<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#battery-cover-bottom" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p>🔧 <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/charging-systems/adjustment-replacement/battery-cover-bottom/" class="external">Online öffnen<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<h4 id="battery-cover-bottom-1">Battery cover, bottom<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#battery-cover-bottom-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<h4 id="to-remove-4">To remove<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#to-remove-4" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>
+<p>Remove the battery .</p>
+</li>
+<li>
+<p>Remove the battery’s air inlet pipe.</p>
+</li>
+<li>
+<p>Cars with petrol engine: Press in the catch and move aside the fuse box in front of the battery.</p>
+</li>
+<li>
+<p>Cars with diesel engine: Press in the catch and move aside the power steering fluid reservoir.</p>
+</li>
+<li>
+<p>Loosen the catches and move aside the heat shield, letting any components remain on the heat shield.</p>
+</li>
+<li>
+<p>Cars with theft protection: Detach the bonnet switch from the battery cover.</p>
+</li>
+<li>
+<p>Undo any wiring harness clips from the battery cover.</p>
+</li>
+<li>
+<p>Remove the bottom of the battery cover.</p>
+</li>
+</ol>
+<h4 id="to-fit-4">To fit<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#to-fit-4" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>
+<p>Fit the bottom of the battery cover, making sure the positive cable lies in the cable duct.</p>
+</li>
+<li>
+<p>Fit the bottom of the battery cover; use 74 96 268 Thread locking adhesive . <strong>Tightening torque 24 Nm (18 lbf ft)</strong></p>
+</li>
+<li>
+<p>Cars with theft protection: Fit the bonnet switch to the battery cover.</p>
+</li>
+<li>
+<p>Secure wiring harness to the battery cover where necessary with a clip.</p>
+</li>
+<li>
+<p>Fit the heat shield.</p>
+</li>
+<li>
+<p>Cars with diesel engine : Fit the power steering fluid reservoir.</p>
+</li>
+<li>
+<p>Cars with petrol engine: Fit the fuse box.</p>
+</li>
+<li>
+<p>Fit the battery’s air inlet pipe.</p>
+</li>
+<li>
+<p>Fit the battery .</p>
+</li>
+</ol>
+<h3 id="battery-cable-ground">Battery cable, ground<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#battery-cable-ground" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p>🔧 <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/charging-systems/adjustment-replacement/battery-cable-ground/" class="external">Online öffnen<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<h4 id="battery-cable-ground-1">Battery cable, ground<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#battery-cable-ground-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<h4 id="to-remove-5">To remove<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#to-remove-5" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>
+<p>Remove the battery .</p>
+</li>
+<li>
+<p>Remove the battery’s air inlet pipe.</p>
+</li>
+<li>
+<p>Cars with petrol engine: Press in the catch and move aside the fuse box in front of the battery.</p>
+</li>
+<li>
+<p>Cars with diesel engine: Press in the catch and move aside the power steering fluid reservoir.</p>
+</li>
+<li>
+<p>Loosen the catches and move aside the heat shield, letting any components remain on the heat shield.</p>
+</li>
+<li>
+<p>Cars with theft protection: Detach the bonnet switch from the battery cover.</p>
+</li>
+<li>
+<p>Undo any wiring harness clips from the battery cover.</p>
+</li>
+<li>
+<p>Remove the bottom of the battery cover.</p>
+</li>
+<li>
+<p>Remove the cable’s nut and bolt.</p>
+</li>
+</ol>
+<h4 id="to-fit-5">To fit<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#to-fit-5" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>
+<p>Position the cable. Fit the cable’s nut and bolt.</p>
+</li>
+<li>
+<p>Fit the bottom of the battery cover, making sure the positive cable lies in the cable duct.</p>
+</li>
+<li>
+<p>Fit the bottom of the battery cover; use 74 96 268 Thread locking adhesive . <strong>Tightening torque 24 Nm (18 lbf ft)</strong></p>
+</li>
+<li>
+<p>Cars with theft protection: Fit the bonnet switch to the battery cover.</p>
+</li>
+<li>
+<p>Secure wiring harness to the battery cover where necessary with a clip.</p>
+</li>
+<li>
+<p>Fit the heat shield.</p>
+</li>
+<li>
+<p>Cars with diesel engine : Fit the power steering fluid reservoir.</p>
+</li>
+<li>
+<p>Cars with petrol engine: Fit the fuse box.</p>
+</li>
+<li>
+<p>Fit the battery’s air inlet pipe.</p>
+</li>
+<li>
+<p>Fit the battery .</p>
+</li>
+<li>
+<p>Reset the car; see Procedures after battery disconnection .</p>
+</li>
+</ol>
+<h3 id="belt-pulley-b207">Belt pulley, B207<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#belt-pulley-b207" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p>🔧 <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/charging-systems/adjustment-replacement/belt-pulley-b207/" class="external">Online öffnen<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<h4 id="belt-pulley-b207-1">Belt pulley, B207<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#belt-pulley-b207-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<h4 id="to-remove-6">To remove<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#to-remove-6" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<pre><code>In the method described below, the generator has already been removed.
+</code></pre>
+<ol>
+<li>
+<p>Remove the belt pulley cover.</p>
+</li>
+<li>
+<p>Remove the belt pulley using special tools 83 95 709 and 83 95 832 . ⚠️ Note The belt pulley is threaded anticlockwise.</p>
+</li>
+</ol>
+<h4 id="to-fit-6">To fit<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#to-fit-6" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>
+<p>Fit the belt pulley using special tools 83 95 709 and 83 95 832 . <strong>Tightening torque 80 Nm (59 lbf ft)</strong></p>
+</li>
+<li>
+<p>Fit the belt pulley cover.</p>
+</li>
+</ol>
+<h3 id="belt-pulley-4-cyl-diesel">Belt pulley, 4-cyl diesel<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#belt-pulley-4-cyl-diesel" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p>🔧 <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/charging-systems/adjustment-replacement/belt-pulley-4-cyl-diesel/" class="external">Online öffnen<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<h4 id="belt-pulley-4-cyl-diesel-1">Belt pulley, 4-cyl diesel<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#belt-pulley-4-cyl-diesel-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<h4 id="to-remove-7">To remove<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#to-remove-7" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<pre><code>In the method described below, the generator has already been removed.
+</code></pre>
+<ol>
+<li>
+<p>Remove the belt pulley cover.</p>
+</li>
+<li>
+<p>Remove the belt pulley. ⚠️ Note The belt pulley is threaded anticlockwise.</p>
+</li>
+</ol>
+<h4 id="to-fit-7">To fit<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#to-fit-7" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>
+<p>Fit the belt pulley. <strong>Tightening torque 80 Nm (59 lbf ft)</strong></p>
+</li>
+<li>
+<p>Fit the belt pulley cover.</p>
+</li>
+</ol>
+<h3 id="charge-regulator-b207">Charge regulator, B207<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#charge-regulator-b207" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p>🔧 <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/charging-systems/adjustment-replacement/charge-regulator-b207/" class="external">Online öffnen<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<h4 id="charge-regulator-b207-1">Charge regulator, B207<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#charge-regulator-b207-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<h4 id="to-remove-8">To remove<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#to-remove-8" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<pre><code>[/images/9-3-9440/img-f3/f321r003.svg](https://saabwisonline.com/images/9-3-9440/img-f3/f321r003.svg)
+</code></pre>
+<p>In the method described below, the generator has already been removed.</p>
+<ol>
+<li>
+<p>Remove the protective housing from the generator.</p>
+</li>
+<li>
+<p>Remove the voltage regulator.</p>
+<p>The generator brushes are fixed to the voltage regulator. The whole unit must be replaced with a new one.</p>
+</li>
+</ol>
+<h4 id="to-fit-8">To fit<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#to-fit-8" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><a href="https://saabwisonline.com/images/9-3-9440/img-f3/f321r004.svg" class="external">/images/9-3-9440/img-f3/f321r004.svg<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<ol>
+<li>
+<p>Carefully straighten the spring tab so that it lies against the voltage regulator. Clean and apply a thin coating of Vaseline to avoid oxidation.</p>
+</li>
+<li>
+<p>Clean the ground connection on the regulator and apply Vaseline.</p>
+</li>
+<li>
+<p>Refit the voltage regulator.</p>
+</li>
+<li>
+<p>Refit the protective housing on to the generator.</p>
+</li>
+<li>
+<p>When changing: check battery, see Battery check and charge battery if necessary, see “Charging the battery.”</p>
+</li>
+</ol>
+<h3 id="charge-regulator-replace-z18xe">Charge regulator, replace, Z18XE<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#charge-regulator-replace-z18xe" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p>🔧 <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/charging-systems/adjustment-replacement/charge-regulator-replace-z18xe/" class="external">Online öffnen<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<h4 id="charge-regulator-replace-z18xe-1">Charge regulator, replace, Z18XE<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#charge-regulator-replace-z18xe-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<h4 id="to-remove-9">To remove<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#to-remove-9" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<pre><code>In the method described below, the generator has already been removed.
+</code></pre>
+<ol>
+<li>
+<p>Remove the generator, see Generator, remove and install, Z18XE .</p>
+</li>
+<li>
+<p>Remove the guard: - Undo the bolts (1, 2) - Pull off the guard</p>
+</li>
+<li>
+<p>Remove the regulator: - Undo the bolts (arrows)</p>
+</li>
+</ol>
+<h4 id="to-fit-9">To fit<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#to-fit-9" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>
+<p>Fit the regulator: - Tighten the bolt</p>
+</li>
+<li>
+<p>Fit the guard: - Tighten the bolt</p>
+</li>
+<li>
+<p>Fit the generator, see Generator, remove and install, Z18XE .</p>
+</li>
+<li>
+<p>When changing, check battery, see Battery check and charge battery if necessary, see “Charging the battery”.</p>
+</li>
+</ol>
+<h3 id="charge-regulator-4-cyl-diesel">Charge regulator, 4-cyl diesel<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#charge-regulator-4-cyl-diesel" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p>🔧 <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/charging-systems/adjustment-replacement/charge-regulator-4-cyl-diesel/" class="external">Online öffnen<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<h4 id="charge-regulator-4-cyl-diesel-1">Charge regulator, 4-cyl diesel<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#charge-regulator-4-cyl-diesel-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<h4 id="to-remove-10">To remove<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#to-remove-10" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<pre><code>In the method described below, the generator has already been removed.
+</code></pre>
+<ol>
+<li>
+<p>Remove the protective housing from the generator.</p>
+</li>
+<li>
+<p>Remove the voltage regulator.</p>
+<p>The generator brushes are fixed to the voltage regulator. The whole unit must be replaced with a new one.</p>
+</li>
+</ol>
+<h4 id="to-fit-10">To fit<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#to-fit-10" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>
+<p>Carefully straighten the spring tab so that it lies against the voltage regulator. Clean and apply a thin coating of Vaseline to avoid oxidation.</p>
+</li>
+<li>
+<p>Clean the ground connection on the regulator and apply Vaseline.</p>
+</li>
+<li>
+<p>Refit the voltage regulator.</p>
+</li>
+<li>
+<p>Refit the protective housing on to the generator.</p>
+</li>
+<li>
+<p>When changing, check battery, see Battery check and charge battery if necessary, see “Charging the battery”.</p>
+</li>
+</ol>
+<h3 id="battery-cover">Battery cover<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#battery-cover" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p>🔧 <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/charging-systems/adjustment-replacement/battery-cover/" class="external">Online öffnen<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<h4 id="battery-cover-1">Battery cover<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#battery-cover-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<h4 id="to-fit-11">To fit<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#to-fit-11" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>| - | A20NFT/LHU:</p>
+<p>When fitting a new battery cover, prepare as follows: | |  | • | Cut along the line (A). |  | • | Bend down the plastic (B). |  | • | Bend up the channel (C). 1. Hook the cover catches into the battery box.</p>
+<ol start="2">
+<li>
+<p>Lower the cover.</p>
+</li>
+<li>
+<p>Lock with lock screws.</p>
+</li>
+<li>
+<p>Press on the hose. (Does not apply to A20NFT/LHU )</p>
+</li>
+</ol>
+<h3 id="charging-the-battery">Charging the battery<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#charging-the-battery" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p>🔧 <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/charging-systems/adjustment-replacement/charging-the-battery/" class="external">Online öffnen<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<h4 id="charging-the-battery-1">Charging the battery<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#charging-the-battery-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>⚠️ <strong>Important</strong>
+| An auxiliary starting system must not be used as this could damage the electronics of the car.
+| To start the car when the battery is discharged, use a booster battery or another car and jumper cables.
+|</p>
+<ol>
+<li>
+<p>The battery can normally be charged with a conventional battery charger. Connect the red cable clip to the positive terminal (+) and the black cable clip to chassis ground.</p>
+</li>
+<li>
+<p>When boost-charging, the battery’s negative terminal must be disconnected. The charging current should not exceed 40 A when boost-charging. Max. charging time: 1.5 hours. ⚠️ Important Never boost-charge a battery if the voltage is below 12 V and the battery is more than 2 years old.</p>
+</li>
+<li>
+<p>If the battery is completely discharged due to the lights or some other source of consumption having been left on, a weak starting charge should be provided to initiate the chemical process in the battery. If this is the case, start charging with 3 A current (it must not exceed 5 A) for 24 hours or until the charging current has dropped to its lowest stable value. Gas starts to form in the battery at 14.4 V.</p>
+<p>If possible, a battery charger capable of delivering a pulsating charging current should be used.</p>
+<p><a href="https://saabwisonline.com/images/9-3-9440/img-e3/e321r025.svg" class="external">/images/9-3-9440/img-e3/e321r025.svg<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</li>
+</ol>
+<h2 id="starting-system--adjustmentreplacement-procedures">Starting System — Adjustment/replacement Procedures<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#starting-system--adjustmentreplacement-procedures" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="starter-motor-b207">Starter motor, B207<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#starter-motor-b207" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p>🔧 <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/starting-system/adjustment-replacement/starter-motor-b207/" class="external">Online öffnen<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<h4 id="starter-motor-b207-1">Starter motor, B207<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#starter-motor-b207-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<h4 id="to-remove-11">To remove<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#to-remove-11" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>
+<p>Remove the battery cover.</p>
+</li>
+<li>
+<p>Disconnect the negative battery cable.</p>
+</li>
+<li>
+<p>Raise the car.</p>
+</li>
+<li>
+<p>Disconnect the starter motor connecting cables.</p>
+</li>
+<li>
+<p>Remove the starter motor retaining bolts.</p>
+</li>
+<li>
+<p>Lower the starter motor and lift it out.</p>
+</li>
+</ol>
+<h4 id="to-fit-12">To fit<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#to-fit-12" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>
+<p>Lift the starter motor into place.</p>
+</li>
+<li>
+<p>Fit the starter motor retaining bolts. <strong>Tightening torque 47 Nm (35 lbf ft)</strong></p>
+</li>
+<li>
+<p>Clean, apply Vaseline and connect the starter motor connecting cables.</p>
+</li>
+<li>
+<p>Lower the car to the floor.</p>
+</li>
+<li>
+<p>Connect the negative cable of the battery.</p>
+</li>
+<li>
+<p>Fit the battery cover.</p>
+</li>
+<li>
+<p>Reset the car; see Procedure after battery disconnection .</p>
+</li>
+</ol>
+<h3 id="starter-motor-z19">Starter motor, Z19<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#starter-motor-z19" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p>🔧 <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/starting-system/adjustment-replacement/starter-motor-z19/" class="external">Online öffnen<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<h4 id="starter-motor-z19-1">Starter motor, Z19<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#starter-motor-z19-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<h4 id="to-remove-12">To remove<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#to-remove-12" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>
+<p>Remove the battery cover.</p>
+</li>
+<li>
+<p>Disconnect the negative battery cable.</p>
+</li>
+<li>
+<p>Remove the upper bolts from the starter motor.</p>
+</li>
+<li>
+<p>Remove the bracket from the coolant pipes and wiring harness.</p>
+</li>
+<li>
+<p>Raise the car.</p>
+</li>
+<li>
+<p>Remove the lower engine cover.</p>
+</li>
+<li>
+<p>Detach the starter motor connecting cables.</p>
+</li>
+<li>
+<p>Detach the ground cable from the lower stud on the starter motor.</p>
+</li>
+<li>
+<p>Remove the lower stud from the starter motor.</p>
+</li>
+<li>
+<p>Lower the starter motor and lift it out.</p>
+</li>
+</ol>
+<h4 id="to-fit-13">To fit<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#to-fit-13" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>
+<p>Lift the starter motor into place and thread the lower stud.</p>
+</li>
+<li>
+<p>Lower the car.</p>
+</li>
+<li>
+<p>Fit the bracket to the coolant pipes and wiring harness.</p>
+</li>
+<li>
+<p>Fit the upper bolts to the starter motor. <strong>Tightening torque 24 Nm (18 lbf ft)</strong></p>
+</li>
+<li>
+<p>Raise the car.</p>
+</li>
+<li>
+<p>Tighten the lower stud. <strong>Tightening torque 24 Nm (18 lbf ft)</strong></p>
+</li>
+<li>
+<p>Connect the cables to the starter motor.</p>
+</li>
+<li>
+<p>Attach the ground cable to the lower stud.</p>
+</li>
+<li>
+<p>Fit the lower engine cover.</p>
+</li>
+<li>
+<p>Lower the car.</p>
+</li>
+<li>
+<p>Fit the negative battery cable.</p>
+</li>
+<li>
+<p>Fit the battery cover.</p>
+</li>
+<li>
+<p>Reset the car; see Procedures after battery disconnection .</p>
+</li>
+</ol>
+<h3 id="starter-motor-replace-z18xe">Starter motor, replace, Z18XE<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#starter-motor-replace-z18xe" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p>🔧 <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/starting-system/adjustment-replacement/starter-motor-replace-z18xe/" class="external">Online öffnen<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<h4 id="starter-motor-replace-z18xe-1">Starter motor, replace, Z18XE<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#starter-motor-replace-z18xe-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<h4 id="to-remove-13">To remove<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#to-remove-13" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>
+<p>Open the bonnet.</p>
+</li>
+<li>
+<p>Disconnect the battery. Detach the ground cable</p>
+</li>
+<li>
+<p>Raise the car.</p>
+</li>
+<li>
+<p>Unplug the wiring harness connector for the catalytic converter control’s oxygen sensor (1)</p>
+</li>
+<li>
+<p>Remove the support for the intake manifold: - Undo the bolts (arrows)</p>
+</li>
+<li>
+<p>Remove the starter motor wiring: - Undo the nut (1)</p>
+</li>
+<li>
+<p>Remove the starter motor: - Undo the bolt</p>
+</li>
+</ol>
+<h4 id="to-fit-14">To fit<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#to-fit-14" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>
+<p>Fit the starter motor: **- Tighten the bolt - Tightening torque <strong>25 Nm</strong></p>
+</li>
+<li>
+<p>Fit the starter motor wiring: - Tighten the nut</p>
+</li>
+<li>
+<p>Fit the support for the intake manifold: **- on the intake manifold - Tighten the bolt - Tightening torque <strong>20 Nm</strong> **- on the engine block - Tighten the bolt - Tightening torque <strong>35 Nm</strong></p>
+</li>
+<li>
+<p>Fasten the wiring harness connector for the catalytic converter control’s oxygen sensor.</p>
+</li>
+<li>
+<p>Lower the car.</p>
+</li>
+<li>
+<p>Connect the battery.</p>
+</li>
+<li>
+<p>Carry out Procedure after battery disconnection .</p>
+</li>
+<li>
+<p>Close the bonnet.</p>
+</li>
+</ol>
+<h3 id="ignition-switch-module-ism">Ignition Switch Module, ISM<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ignition-switch-module-ism" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p>🔧 <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/starting-system/adjustment-replacement/ignition-switch-module-ism/" class="external">Online öffnen<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<h4 id="ignition-switch-module-ism-1">Ignition Switch Module, ISM<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ignition-switch-module-ism-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>⚠️ <strong>Important</strong>
+| ESD-SENSITIVE COMPONENT
+| Earth yourself by touching the car body before plugging in/unplugging components.</p>
+<p>Do not touch the component pins, see</p>
+<p>Removing electronic components</p>
+<p>.
+|</p>
+<h4 id="to-remove-14">To remove<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#to-remove-14" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>
+<p>Operate/move the seats to their rearmost positions.</p>
+</li>
+<li>
+<p>Remove the front side pieces from the floor console.</p>
+</li>
+<li>
+<p>Remove the cover from over the gear lever housing, use 82 93 474 Removal tool in the rear edge of the cover and pull back.</p>
+</li>
+<li>
+<p>AUT: Remove the clamp.</p>
+</li>
+<li>
+<p>Remove the cover under the handbrake by pulling it straight out.</p>
+</li>
+<li>
+<p>Remove the cover on the passenger side by squeezing the cover and lifting it up. Remove the compartment under the cover on the passenger side.</p>
+</li>
+<li>
+<p>Lift up the rubber mat in the floor console storage compartment and remove the screws.</p>
+</li>
+<li>
+<p>Remove the floor console screws, note that the screws for plastic and aluminium are different.</p>
+</li>
+<li>
+<p>Remove the sound insulation (certain cars).</p>
+</li>
+<li>
+<p>Press in the four catches (two on each long side) and press down the ignition switch module.</p>
+</li>
+<li>
+<p>Lift up the floor console slightly and remove the ignition switch module.</p>
+</li>
+<li>
+<p>Remove the connector, see Connectors, handling and checking item 1D.</p>
+</li>
+</ol>
+<h4 id="to-fit-15">To fit<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#to-fit-15" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>
+<p>Plug in the connector to the ignition switch module, see Connectors, handling and checking item 1D.</p>
+</li>
+<li>
+<p>Lift up the floor console slightly and fit the ignition switch module. Make sure all four catches are in the correct position.</p>
+</li>
+<li>
+<p>Fit the floor console screws and tighten them. Put the rubber mat back into the storage compartment.</p>
+</li>
+<li>
+<p>Fit the cover under the handbrake lever.</p>
+</li>
+<li>
+<p>Fit the compartment and cover on the passenger side.</p>
+</li>
+<li>
+<p>AUT: Fit the clamp.</p>
+</li>
+<li>
+<p>Fit the cover over the gear lever housing.</p>
+</li>
+<li>
+<p>Fit the front side pieces on the floor console.</p>
+</li>
+<li>
+<p>Connect Tech2 and clear any DTCs.</p>
+</li>
+</ol>
+<h3 id="contact-clutch-immobiliser-411-usca">Contact, clutch, immobiliser (411) US/CA<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#contact-clutch-immobiliser-411-usca" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p>🔧 <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/starting-system/adjustment-replacement/contact-clutch-immobiliser-411-us-ca/" class="external">Online öffnen<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<h4 id="contact-clutch-immobiliser-411-usca-1">Contact, clutch, immobiliser (411) US/CA<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#contact-clutch-immobiliser-411-usca-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<h4 id="to-remove-15">To remove<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#to-remove-15" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>
+<p>Remove the acoustic baffle on the driver’s side. NEW ILLUSTRATION 9-3_1</p>
+</li>
+<li>
+<p>Pull out the contact’s push rod and locking sleeve.</p>
+</li>
+<li>
+<p>Compress the lock tabs and remove the contact (A).</p>
+</li>
+<li>
+<p>Unplug the connector (B)</p>
+</li>
+</ol>
+<h4 id="to-fit-16">To fit<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#to-fit-16" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>
+<p>Plug in the connector (B) NEW ILLUSTRATION 9-3_1</p>
+</li>
+<li>
+<p>Pull out the contact’s push rod and locking sleeve.</p>
+</li>
+<li>
+<p>Fit the contact. ⚠️ Note The contact must fit the coding in the bracket.</p>
+</li>
+<li>
+<p>Fit the acoustic baffle on the driver’s side.</p>
+</li>
+</ol>
+<h3 id="procedures-after-disconnecting-the-battery-2">Procedures after disconnecting the battery<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#procedures-after-disconnecting-the-battery-2" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p>🔧 <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/starting-system/adjustment-replacement/procedures-after-disconnecting-the-battery/" class="external">Online öffnen<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<h4 id="procedures-after-disconnecting-the-battery-3">Procedures after disconnecting the battery<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#procedures-after-disconnecting-the-battery-3" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>
+<p>Clear diagnostic trouble codes in all systems. ⚠️ Important Some diagnostic trouble codes can be generated if there is a voltage drop. These diagnostic trouble codes can be ignored and will not be regenerated after deletion.</p>
+</li>
+<li>
+<p>Set the clock as follows:</p>
+</li>
+</ol>
+<p>|  | 2.a. | Turn the ignition key to the ON position. |  | 2.b. | Press CUSTOMIZE on SIDC (SID control panel). |  | 2.c. | Turn the INFO knob until the displays shows “Clock/Alarm”. Press to confirm “OK”. |  | 2.d. | Turn the INFO knob to “Set Clock”. Press “OK”. |  | 2.e. | Turn the INFO knob to “Manual” or “RDS adjust” and set the correct time. Press “OK”. 3. Set the date as follows:</p>
+<p>|  | 3.a. | Turn the ignition key to the ON position. |  | 3.b. | Turn the INFO knob to “DATE”. |  | 3.c. | Press the INFO knob until the display shows “YEAR 2000”. |  | 3.d. | Turn the INFO knob to the correct year. Press to confirm “OK”. |  | 3.e. | Turn the INFO knob to the correct month. Press “OK”. |  | 3.f. | Turn the INFO knob to the correct date. Press “OK”.</p>
+<p>⚠️ Important</p>
+<p>Draw the customer’s attention to the fact that all remote controls must be synchronised by placing the key/keys in the ignition lock. If this is not done, the remote control will not work. 4. Synchronise the remote control’s code by inserting the key in the ignition switch. ⚠️ Warning The trap protection is not active until the window lifters have been calibrated after a power failure.</p>
+<ol start="5">
+<li>Cars with pinch protection: Program the pinch protection, see Programming pinch protection .</li>
+</ol>
+<h2 id="starting-system--fault-diagnosis-procedures">Starting System — Fault diagnosis Procedures<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#starting-system--fault-diagnosis-procedures" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="key-cannot-be-turned-from-lock-to-off">Key cannot be turned from LOCK to OFF<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#key-cannot-be-turned-from-lock-to-off" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p>🔧 <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/starting-system/fault-diagnosis-fault-symptoms/key-cannot-be-turned-from-lock-to-off/" class="external">Online öffnen<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<h4 id="key-cannot-be-turned-from-lock-to-off-1">Key cannot be turned from LOCK to OFF<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#key-cannot-be-turned-from-lock-to-off-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Read the instructions below then
+<a href="https://saabwisonline.com/9-3-9440/ft/3/_3559" class="external">start the fault diagnostic procedure<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>.</p>
+<p>Symptom: Key cannot be turned from LOCK to OFF
+<a href="https://saabwisonline.com/images/9-3-9440/img-im/img5680.svg" class="external">/images/9-3-9440/img-im/img5680.svg<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<h4 id="fault-symptom">Fault symptom<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#fault-symptom" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Key cannot be turned from LOCK to OFF</p>
+<h4 id="conditions">Conditions<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#conditions" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>No DTCs stored with the fault symptom in question.</p>
+<p>Battery voltage greater than 11 V.</p>
+<h4 id="diagnostic-help">Diagnostic help<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#diagnostic-help" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>This symptom can arise if system voltage is low.</p>
+<p>⚠️ IMPORTANT</p>
+<p>| • | If DTCs are cleared before the fault is remedied, important information on the cause of the fault may be lost and the system may not be able to detect the cause of the fault again. | When DTCs are read out, the diagnostic instrument shows what is blocking the turn of the key.</p>
+<p>Most functions that can make it impossible to turn the key are monitored by self-diagnostics and therefore generate DTCs if they are faulty.</p>
+<p>Fault diagnosis is only used for faults that are not monitored by self-diagnostics.</p>
+<h3 id="key-cannot-be-turned-from-off-to-lock">Key cannot be turned from OFF to LOCK<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#key-cannot-be-turned-from-off-to-lock" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p>🔧 <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/starting-system/fault-diagnosis-fault-symptoms/key-cannot-be-turned-from-off-to-lock/" class="external">Online öffnen<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<h4 id="key-cannot-be-turned-from-off-to-lock-1">Key cannot be turned from OFF to LOCK<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#key-cannot-be-turned-from-off-to-lock-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Read the instructions below then
+<a href="https://saabwisonline.com/9-3-9440/ft/3/_3920" class="external">start the fault diagnostic procedure<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>.</p>
+<p>Symptom: Key cannot be turned from OFF to LOCK
+<a href="https://saabwisonline.com/images/9-3-9440/img-im/img5681.svg" class="external">/images/9-3-9440/img-im/img5681.svg<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<h4 id="fault-symptom-1">Fault symptom<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#fault-symptom-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Key cannot be turned from OFF to LOCK</p>
+<h4 id="conditions-1">Conditions<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#conditions-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>No DTCs stored with the fault symptom in question.</p>
+<p>Battery voltage greater than 9 V.</p>
+<h4 id="diagnostic-help-1">Diagnostic help<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#diagnostic-help-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>This symptom can arise if system voltage is low.</p>
+<p>⚠️ IMPORTANT</p>
+<p>| • | If DTCs are cleared before the fault is remedied, important information on the cause of the fault may be lost and the system may not be able to detect the cause of the fault again. | When DTCs are read out, the diagnostic instrument shows what is blocking the turn of the key.</p>
+<p>Most functions that can make it impossible to turn the key are monitored by self-diagnostics and therefore generate DTCs if they are faulty.</p>
+<p>Fault diagnosis is only used for faults that are not monitored by self-diagnostics.</p>
+<h3 id="no-starter-motor-cranking">No starter motor cranking.<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#no-starter-motor-cranking" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Engine does not start.</p>
+<blockquote>
+<p>🔧 <a href="https://saabwisonline.com/9-3-9440/2005/3-electrical-system/starting-system/fault-diagnosis-fault-symptoms/starter-motor-does-not-crank/" class="external">Online öffnen<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<h4 id="no-starter-motor-cranking-1">No starter motor cranking.<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#no-starter-motor-cranking-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Engine does not start.</p>
+<p>Read the instructions below then
+<a href="https://saabwisonline.com/9-3-9440/ft/4/_4346" class="external">start the fault diagnostic procedure<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>.</p>
+<p>Symptom: No starter motor cranking.
+Engine does not start.
+<a href="https://saabwisonline.com/images/9-3-9440/img-im/img740.jpg" class="external">/images/9-3-9440/img-im/img740.jpg<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<h4 id="fault-symptom-2">Fault symptom<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#fault-symptom-2" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>No starter motor cranking.</p>
+<p>Engine does not start.</p>
+<h4 id="conditions-2">Conditions<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#conditions-2" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>| • | No DTCs stored with the fault symptom in question. | | • | Key can be turned to ST position. | | • | Automatic: Selector lever in P. | | • | Manual US/CA: Clutch pedal depressed. | <a href=".././tags/" class="tag-link internal alias" data-slug="tags/index"></a> Diagnostic help</p>
+<p>Check battery cable connections, to the battery and to the chassis, are tightened and have good contact without oxide or corrosion.</p>
+<p>Most functions that can prevent starter motor cranking are monitored by self-diagnostics and therefore generate DTCs if they are faulty.</p>
+<p>Fault diagnosis is only used for faults that are not monitored by self-diagnostics.</p></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" class="toc-header" aria-controls="toc-3" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-1" class="toc-content overflow"><li class="depth-0"><a href="#3-electrical-system" data-for="3-electrical-system">3. Electrical System</a></li><li class="depth-1"><a href="#subsections" data-for="subsections">Subsections</a></li><li class="depth-1"><a href="#bus--diagnostics--subsections" data-for="bus--diagnostics--subsections">Bus &amp; Diagnostics — Subsections</a></li><li class="depth-1"><a href="#bus--diagnostics--technische-beschreibung" data-for="bus--diagnostics--technische-beschreibung">Bus &amp; Diagnostics — Technische Beschreibung</a></li><li class="depth-2"><a href="#p-bus" data-for="p-bus">P-bus</a></li><li class="depth-2"><a href="#i-bus-4d" data-for="i-bus-4d">I-bus, 4D</a></li><li class="depth-2"><a href="#i-bus-cv" data-for="i-bus-cv">I-bus, CV</a></li><li class="depth-2"><a href="#o-bus-4d" data-for="o-bus-4d">O-bus, 4D</a></li><li class="depth-2"><a href="#o-bus-cv" data-for="o-bus-cv">O-bus, CV</a></li><li class="depth-2"><a href="#general" data-for="general">General</a></li><li class="depth-2"><a href="#p-bus-and-i-bus" data-for="p-bus-and-i-bus">P-bus and I-bus</a></li><li class="depth-2"><a href="#o-bus" data-for="o-bus">O-bus</a></li><li class="depth-2"><a href="#general-1" data-for="general-1">General</a></li><li class="depth-2"><a href="#p-bus-and-i-bus-1" data-for="p-bus-and-i-bus-1">P-bus and I-bus</a></li><li class="depth-2"><a href="#o-bus-1" data-for="o-bus-1">O-bus</a></li><li class="depth-2"><a href="#c-cable" data-for="c-cable">C-cable</a></li><li class="depth-2"><a href="#function-chains" data-for="function-chains">Function chains</a></li><li class="depth-1"><a href="#charging-systems--details" data-for="charging-systems--details">Charging Systems — Details</a></li><li class="depth-1"><a href="#starting-system--details" data-for="starting-system--details">Starting System — Details</a></li><li class="depth-1"><a href="#charging-systems--adjustmentreplacement-procedures" data-for="charging-systems--adjustmentreplacement-procedures">Charging Systems — Adjustment/replacement Procedures</a></li><li class="depth-2"><a href="#generator-z19" data-for="generator-z19">Generator, Z19</a></li><li class="depth-2"><a href="#generator-b207" data-for="generator-b207">Generator, B207</a></li><li class="depth-2"><a href="#generator-remove-and-install-z18xe" data-for="generator-remove-and-install-z18xe">Generator, remove and install, Z18XE</a></li><li class="depth-2"><a href="#battery" data-for="battery">Battery</a></li><li class="depth-2"><a href="#procedures-after-disconnecting-the-battery" data-for="procedures-after-disconnecting-the-battery">Procedures after disconnecting the battery</a></li><li class="depth-2"><a href="#battery-check" data-for="battery-check">Battery check</a></li><li class="depth-2"><a href="#battery-cover-bottom" data-for="battery-cover-bottom">Battery cover, bottom</a></li><li class="depth-2"><a href="#battery-cable-ground" data-for="battery-cable-ground">Battery cable, ground</a></li><li class="depth-2"><a href="#belt-pulley-b207" data-for="belt-pulley-b207">Belt pulley, B207</a></li><li class="depth-2"><a href="#belt-pulley-4-cyl-diesel" data-for="belt-pulley-4-cyl-diesel">Belt pulley, 4-cyl diesel</a></li><li class="depth-2"><a href="#charge-regulator-b207" data-for="charge-regulator-b207">Charge regulator, B207</a></li><li class="depth-2"><a href="#charge-regulator-replace-z18xe" data-for="charge-regulator-replace-z18xe">Charge regulator, replace, Z18XE</a></li><li class="depth-2"><a href="#charge-regulator-4-cyl-diesel" data-for="charge-regulator-4-cyl-diesel">Charge regulator, 4-cyl diesel</a></li><li class="depth-2"><a href="#battery-cover" data-for="battery-cover">Battery cover</a></li><li class="depth-2"><a href="#charging-the-battery" data-for="charging-the-battery">Charging the battery</a></li><li class="depth-1"><a href="#starting-system--adjustmentreplacement-procedures" data-for="starting-system--adjustmentreplacement-procedures">Starting System — Adjustment/replacement Procedures</a></li><li class="depth-2"><a href="#starter-motor-b207" data-for="starter-motor-b207">Starter motor, B207</a></li><li class="depth-2"><a href="#starter-motor-z19" data-for="starter-motor-z19">Starter motor, Z19</a></li><li class="depth-2"><a href="#starter-motor-replace-z18xe" data-for="starter-motor-replace-z18xe">Starter motor, replace, Z18XE</a></li><li class="depth-2"><a href="#ignition-switch-module-ism" data-for="ignition-switch-module-ism">Ignition Switch Module, ISM</a></li><li class="depth-2"><a href="#contact-clutch-immobiliser-411-usca" data-for="contact-clutch-immobiliser-411-usca">Contact, clutch, immobiliser (411) US/CA</a></li><li class="depth-2"><a href="#procedures-after-disconnecting-the-battery-1" data-for="procedures-after-disconnecting-the-battery-1">Procedures after disconnecting the battery</a></li><li class="depth-1"><a href="#starting-system--fault-diagnosis-procedures" data-for="starting-system--fault-diagnosis-procedures">Starting System — Fault diagnosis Procedures</a></li><li class="depth-2"><a href="#key-cannot-be-turned-from-lock-to-off" data-for="key-cannot-be-turned-from-lock-to-off">Key cannot be turned from LOCK to OFF</a></li><li class="depth-2"><a href="#key-cannot-be-turned-from-off-to-lock" data-for="key-cannot-be-turned-from-off-to-lock">Key cannot be turned from OFF to LOCK</a></li><li class="depth-2"><a href="#no-starter-motor-cranking" data-for="no-starter-motor-cranking">No starter motor cranking.</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>Backlinks</h3><ul id="list-2" class="overflow"><li><a href="../" class="internal">index Dashboard</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2026</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript.js" type="module" data-persist="true"></script></html>
